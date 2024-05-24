@@ -1,4 +1,4 @@
-package com.clquinn.models.dictionaries.relationship;
+package com.clquinn.models.dictionary.relationship;
 
 import com.clquinn.models.character.Character;
 import jakarta.persistence.Embeddable;

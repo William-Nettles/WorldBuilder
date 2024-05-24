@@ -1,4 +1,4 @@
-package com.clquinn.models.dictionaries.atlas;
+package com.clquinn.models.dictionary.atlas;
 
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;

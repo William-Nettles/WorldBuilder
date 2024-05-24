@@ -1,4 +1,4 @@
-package com.clquinn.models.dictionaries.faction;
+package com.clquinn.models.dictionary.faction;
 
 import com.clquinn.models.character.Character;
 import com.clquinn.models.character.Faction;

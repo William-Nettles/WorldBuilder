@@ -1,6 +1,6 @@
 package com.clquinn.models.setting;
 
-import com.clquinn.models.dictionaries.atlas.Chart;
+import com.clquinn.models.dictionary.atlas.Chart;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import org.slf4j.Logger;

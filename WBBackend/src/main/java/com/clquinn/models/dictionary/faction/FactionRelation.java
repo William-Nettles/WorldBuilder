@@ -1,4 +1,4 @@
-package com.clquinn.models.dictionaries.faction;
+package com.clquinn.models.dictionary.faction;
 
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;

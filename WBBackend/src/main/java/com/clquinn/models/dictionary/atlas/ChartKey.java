@@ -1,4 +1,4 @@
-package com.clquinn.models.dictionaries.atlas;
+package com.clquinn.models.dictionary.atlas;
 
 import com.clquinn.models.setting.Location;
 import com.clquinn.models.setting.Map;

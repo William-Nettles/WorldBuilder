@@ -1,6 +1,6 @@
 package com.clquinn.models.character;
 
-import com.clquinn.models.dictionaries.faction.FactionRelation;
+import com.clquinn.models.dictionary.faction.FactionRelation;
 import com.clquinn.models.setting.Location;
 import com.clquinn.models.setting.World;
 import com.fasterxml.jackson.annotation.JsonIgnore;

@@ -1,7 +1,7 @@
 package com.clquinn.models.character;
 
-import com.clquinn.models.dictionaries.faction.FactionRelation;
-import com.clquinn.models.dictionaries.relationship.Relationship;
+import com.clquinn.models.dictionary.faction.FactionRelation;
+import com.clquinn.models.dictionary.relationship.Relationship;
 import com.clquinn.models.setting.World;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
