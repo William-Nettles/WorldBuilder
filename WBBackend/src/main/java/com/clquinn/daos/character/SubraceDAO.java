@@ -9,5 +9,5 @@ import java.util.Optional;
 @Repository
 public interface SubraceDAO extends JpaRepository<Subrace, Long>{
 
-    Optional<Object> findByName(String name);
+    Optional<Subrace> findByName(String name);
 }

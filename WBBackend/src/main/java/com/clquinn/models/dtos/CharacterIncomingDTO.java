@@ -1,5 +1,7 @@
-package com.clquinn.models.character;
+package com.clquinn.models.dtos;
 
+import com.clquinn.models.character.Race;
+import com.clquinn.models.character.Subrace;
 import com.clquinn.models.dictionary.faction.FactionRelation;
 import com.clquinn.models.dictionary.relationship.Relationship;
 import com.clquinn.models.setting.World;
@@ -9,79 +11,32 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-@Entity
-@Table(name = "characters")
-@Component
-public class Character {
+public class CharacterIncomingDTO {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
 
-    @Column(name = "first_name")
     private String firstName;
-
-    @Column(name = "last_name")
     private String lastName;
-
-    @Column(name = "other_names")
     private String otherNames;
-
-    @Column(name = "age")
     private int age;
-
-    @Column(name = "date_of_birth")
     private String dateOfBirth;
-
-    @Column(name = "date_of_death")
     private String dateOfDeath;
-
-    @Column(name = "description")
     private String description;
-
-    @Column(name = "image")
     private String image;
-
-    @Column(name = "sex")
     private String sex;
-
-    @Column(name = "height")
     private int height;
-
-    @Column(name = "weight")
     private int weight;
-
-    @Column(name = "hair_color")
     private String hairColor;
-
-    @Column(name = "eye_color")
     private String eyeColor;
+    private String worldName;
+    private String raceName;
+    private String subraceName;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "world_id")
-    private World world;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "race_id")
-    private Race race;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "subrace_id")
-    private Subrace subrace;
-
-    @JsonIgnore
-    @OneToMany(mappedBy = "id.character", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<FactionRelation> factionRelations;
-
-    @JsonIgnore
-    @OneToMany(mappedBy = "id.character", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private  List<Relationship> relationships;
-
-    public Character() {
+    public CharacterIncomingDTO() {
     }
 
-    public Character(Long id, String firstName, String lastName, String otherNames, int age, String dateOfBirth, String dateOfDeath, String description, String image, String sex, int height, int weight, String hairColor, String eyeColor, World world, Race race, Subrace subrace) {
-        this.id = id;
+    public CharacterIncomingDTO(Long id, String firstName, String lastName, String otherNames, int age, String dateOfBirth, String dateOfDeath, String description, String image, String sex, int height, int weight, String hairColor, String eyeColor, String worldName, String raceName, String subraceName) {
+
         this.firstName = firstName;
         this.lastName = lastName;
         this.otherNames = otherNames;
@@ -95,39 +50,9 @@ public class Character {
         this.weight = weight;
         this.hairColor = hairColor;
         this.eyeColor = eyeColor;
-        this.world = world;
-        this.race = race;
-        this.subrace = subrace;
-    }
-
-    public Character(Long id, String firstName, String lastName, String otherNames, int age, String dateOfBirth, String dateOfDeath, String description, String image, String sex, int height, int weight, String hairColor, String eyeColor, World world, Race race, Subrace subrace, List<FactionRelation> factionRelations, List<Relationship> relationships) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.otherNames = otherNames;
-        this.age = age;
-        this.dateOfBirth = dateOfBirth;
-        this.dateOfDeath = dateOfDeath;
-        this.description = description;
-        this.image = image;
-        this.sex = sex;
-        this.height = height;
-        this.weight = weight;
-        this.hairColor = hairColor;
-        this.eyeColor = eyeColor;
-        this.world = world;
-        this.race = race;
-        this.subrace = subrace;
-        this.factionRelations = factionRelations;
-        this.relationships = relationships;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
+        this.worldName = worldName;
+        this.raceName = raceName;
+        this.subraceName = subraceName;
     }
 
     public String getFirstName() {
@@ -234,51 +159,34 @@ public class Character {
         this.eyeColor = eyeColor;
     }
 
-    public World getWorld() {
-        return world;
+    public String getWorldName() {
+        return worldName;
     }
 
-    public void setWorld(World world) {
-        this.world = world;
+    public void setWorldName(String worldName) {
+        this.worldName = worldName;
     }
 
-    public Race getRace() {
-        return race;
+    public String getRaceName() {
+        return raceName;
     }
 
-    public void setRace(Race race) {
-        this.race = race;
+    public void setRaceName(String raceName) {
+        this.raceName = raceName;
     }
 
-    public Subrace getSubrace() {
-        return subrace;
+    public String getSubraceName() {
+        return subraceName;
     }
 
-    public void setSubrace(Subrace subrace) {
-        this.subrace = subrace;
-    }
-
-    public List<FactionRelation> getFactionRelations() {
-        return factionRelations;
-    }
-
-    public void setFactionRelations(List<FactionRelation> factionRelations) {
-        this.factionRelations = factionRelations;
-    }
-
-    public List<Relationship> getRelationships() {
-        return relationships;
-    }
-
-    public void setRelationships(List<Relationship> relationships) {
-        this.relationships = relationships;
+    public void setSubraceName(String subraceName) {
+        this.subraceName = subraceName;
     }
 
     @Override
     public String toString() {
-        return "Character{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
+        return "CharacterIncomingDTO{" +
+                "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", otherNames='" + otherNames + '\'' +
                 ", age=" + age +
@@ -291,11 +199,9 @@ public class Character {
                 ", weight=" + weight +
                 ", hairColor='" + hairColor + '\'' +
                 ", eyeColor='" + eyeColor + '\'' +
-                ", world=" + world +
-                ", race=" + race +
-                ", subrace=" + subrace +
-                ", factionRelations=" + factionRelations +
-                ", relationships=" + relationships +
+                ", worldName='" + worldName + '\'' +
+                ", raceName='" + raceName + '\'' +
+                ", subraceName='" + subraceName + '\'' +
                 '}';
     }
 }

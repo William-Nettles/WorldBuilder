@@ -11,4 +11,7 @@ import java.util.Optional;
 public interface CharacterDAO extends JpaRepository<Character, Long> {
     List<Character> findByLastName(String lastName);
 
+    Optional<Object> findByFirstNameAndLastNameAndOtherNamesAndWorld_Id(String firstName, String lastName, String otherNames, Long id);
+    Optional<Object> findByFirstNameAndLastNameAndOtherNames(String firstName, String lastName, String otherNames);
+
 }
