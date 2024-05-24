@@ -35,7 +35,7 @@ public class FactionRelationController {
         }
     }
 
-    @GetMapping
+    @GetMapping("faction/{id}")
     public ResponseEntity<?> getFactionRelationsByFaction(Long id) {
         try {
             return ResponseEntity.ok(factionRelationService.getFactionRelationsByFaction(id));
@@ -44,7 +44,7 @@ public class FactionRelationController {
         }
     }
 
-    @GetMapping
+    @GetMapping("character/{id}")
     public ResponseEntity<?> getFactionRelationsByCharacter(Long id) {
         try {
             return ResponseEntity.ok(factionRelationService.getFactionRelationsByCharacter(id));
@@ -53,7 +53,7 @@ public class FactionRelationController {
         }
     }
 
-    @GetMapping
+    @GetMapping("/{factionId}/{characterId}")
     public ResponseEntity<?> getFactionRelationByFactionAndCharacter(Long factionId, Long characterId) {
         try {
             return ResponseEntity.ok(factionRelationService.getFactionRelationByFactionAndCharacter(factionId, characterId));

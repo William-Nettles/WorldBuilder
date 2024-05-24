@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/world")
 public class WorldController {
 
-    private WorldService worldService;
+    private final WorldService worldService;
 
     @Autowired
     public WorldController(WorldService worldService) {
@@ -67,7 +67,7 @@ public class WorldController {
     public ResponseEntity<Object> deleteWorld(@PathVariable Long id) {
         try {
             worldService.deleteWorld(id);
-            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(("World deleted");
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(("World deleted"));
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.GONE).body(e.getMessage());
         }

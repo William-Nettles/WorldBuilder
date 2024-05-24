@@ -39,7 +39,7 @@ public class AtlasService {
         return atlasDAO.findById_Location_Id(id);
     }
 
-    public List<Map> getChartsByMap(Long id) {
+    public List<Chart> getChartsByMap(Long id) {
         return atlasDAO.findById_Map_Id(id);
     }
 
