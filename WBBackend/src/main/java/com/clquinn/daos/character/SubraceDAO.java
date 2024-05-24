@@ -4,7 +4,10 @@ import com.clquinn.models.character.Subrace;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-@Repository
-public interface SubraceDAO extends JpaRepository<Integer, Subrace>{
+import java.util.Optional;
 
+@Repository
+public interface SubraceDAO extends JpaRepository<Subrace, Long>{
+
+    Optional<Object> findByName(String name);
 }

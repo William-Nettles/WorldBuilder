@@ -5,5 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface FactionRelationDAO extends JpaRepository<Integer, FactionRelation> {
+public interface FactionRelationDAO extends JpaRepository<FactionRelation, Long> {
 }
