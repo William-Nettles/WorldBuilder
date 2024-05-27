@@ -54,7 +54,6 @@ export const NavbarComp: React.FC = () => {
                             <Nav.Link href="/worlds">Worlds</Nav.Link>
                             {currentUser.role?.toUpperCase() === "ADMIN" && <NavDropdown title="ADMIN">
                                 <NavDropdown.Item href="/allusers">Users</NavDropdown.Item>
-                                <NavDropdown.Item href="/review-management">Review Management</NavDropdown.Item>
                             </NavDropdown>}
                         </Nav>
                         <Nav>
