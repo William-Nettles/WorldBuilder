@@ -58,7 +58,7 @@ export const NavbarComp: React.FC = () => {
                         </Nav>
                         <Nav>
                             <Nav.Link href="/account">{currentUser.username}</Nav.Link>
-                            <Button style={{ margin: "5px" }} onClick={logout}>Logout</Button>
+                            <Button variant="warning" style={{ margin: "5px" }} onClick={logout}>Logout</Button>
                         </Nav>
                         </>}
                 </Navbar.Collapse>

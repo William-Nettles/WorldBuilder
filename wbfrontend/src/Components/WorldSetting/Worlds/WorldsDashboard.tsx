@@ -1,10 +1,30 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { WorldInterface } from "../../../Interfaces/WorldInterface";
 import { WorldCard } from "./WorldCard";
+import {getWorlds} from "../../../Global/apis";
+import { AddCard } from "../../Builders/AddCard";
+import { AddCardInterface } from "../../../Interfaces/AddCardInterface";
+import './WorldsDashboard.css';
+import { useLocation } from "react-router-dom";
 
 export const WorldsDashboard: React.FC = () => {
 
+    const location = useLocation();
     const [worlds, setWorlds] = useState<WorldInterface[]>([]);
+    const [builder] = useState<AddCardInterface>(
+        {name:"New World", 
+        description:"Create a new world", 
+        image:'/newWorld.jpg', 
+        path:"/worlds/add"});
+
+    useEffect(() => {
+        const fetchWorlds = async () => {
+            const worldsData = await getWorlds();
+            setWorlds(worldsData);
+        };
+
+        fetchWorlds();
+    }, []);
 
     return (
         <div>
@@ -13,12 +33,9 @@ export const WorldsDashboard: React.FC = () => {
 
             {worlds.map(world => {
                 return (
-                    <div key={world.id}>
-                        <img src={world.image} alt="world" />
-                        <h3>{world.name}</h3>
-                        <p>{world.description}</p>
-                        <p>{world.user?.username}</p>
-                        <WorldCard {...world} />
+                    <div style={{display: 'flex', flexDirection:"row"}}>
+                        <AddCard {...builder} />
+                        {worlds.map(world =><WorldCard {...world} />)}
                     </div>
                 );
             })}

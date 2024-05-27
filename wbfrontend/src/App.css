@@ -36,3 +36,16 @@
     transform: rotate(360deg);
   }
 }
+
+
+.App {
+  text-align: center;
+  background-image: url("../public/worlds splash.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+  color: "white";
+}
+
+
