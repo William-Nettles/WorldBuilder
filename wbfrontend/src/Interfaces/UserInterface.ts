@@ -7,8 +7,7 @@ export interface UserInterface {
     password?: string,
     role?: string,
     email?:string,
-    timestamp?:string,
-    follow?:any
-    collection?:any
+    aboutMe?:string,
+    profilePic?:string,
     jwt?:string;
 }
