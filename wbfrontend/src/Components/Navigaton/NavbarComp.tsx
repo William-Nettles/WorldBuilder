@@ -52,13 +52,11 @@ export const NavbarComp: React.FC = () => {
                             <Nav.Link href="/">Home</Nav.Link>
                             <Nav.Link href="/about">About</Nav.Link>
                             <Nav.Link href="/worlds">Worlds</Nav.Link>
-                            {currentUser.role?.toUpperCase() === "ADMIN" && <NavDropdown title="ADMIN">
-                                <NavDropdown.Item href="/allusers">Users</NavDropdown.Item>
-                            </NavDropdown>}
-                        </Nav>
-                        <Nav>
                             <Nav.Link href="/account">{currentUser.username}</Nav.Link>
                             <Button variant="warning" style={{ margin: "5px" }} onClick={logout}>Logout</Button>
+                            {currentUser.role?.toUpperCase() === "ADMIN" && <NavDropdown title="ADMIN">
+                                <NavDropdown.Item href="/allusers">Users</NavDropdown.Item>
+                            </NavDropdown>}                            
                         </Nav>
                         </>}
                 </Navbar.Collapse>

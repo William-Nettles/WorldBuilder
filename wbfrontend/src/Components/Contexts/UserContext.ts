@@ -5,8 +5,8 @@ import { UserContextInterface } from "../../Interfaces/UserContextInterface";
 
 //This is the default values for our global user state data
 const initialState:UserInterface = {
-    id: 0,
-    username: "",
+    id: 1,
+    username: "deezNetts",
     jwt: ""
 };
 

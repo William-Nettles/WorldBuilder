@@ -50,7 +50,7 @@ return (
             <Container>
                 <Button variant = "dark" onClick={handleToggle} style={{position: 'fixed', top: 58, left: 0}}>| | |</Button>
                 <Navbar.Toggle onClick={handleToggle} aria-controls="world-builder-navbar-nav" />
-                <Navbar.Collapse in={isOpen} id="world-builder-navbar-nav" className="justify-content-end">
+                <Navbar.Collapse in={isOpen} id="world-builder-navbar-nav" className="justify-content-evenly" style={{alignItems: 'flex-start'}}>
                     {currentUser == null ?
                     
                     <Nav style={{ textAlign:'left', flexDirection : 'column', opacity: isOpen ? 1 : 0, transition: "opacity 0.25s"}}>

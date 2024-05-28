@@ -9,4 +9,5 @@ export interface WorldInterface {
     isPublic?: boolean,
     splashImage?: string,
     genre?: string,
+    type?: string,
 }
