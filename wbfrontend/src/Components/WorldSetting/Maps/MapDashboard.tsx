@@ -8,7 +8,7 @@ export const MapDashboard: React.FC = () => {
         {
             name: "New Map",
             description: "Create a new map",
-            image: '/newWorld.jpg',
+            image: '/map.png',
             path: "/maps/add"
         });
     const [cardsState, setCardsState] = useState<CardInterface[]>([])

@@ -8,7 +8,7 @@ export const LocationDashboard: React.FC = () => {
         {
             name: "New Location",
             description: "Create a new location",
-            image: '/newWorld.jpg',
+            image: '/western steppe.png',
             path: "/locations/add"
         });
     const [cardsState, setCardsState] = useState<CardInterface[]>([])

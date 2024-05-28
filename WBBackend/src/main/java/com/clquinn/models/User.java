@@ -1,5 +1,6 @@
 package com.clquinn.models;
 
+import com.clquinn.models.dictionary.Note;
 import com.clquinn.models.setting.World;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
@@ -46,6 +47,10 @@ public class User {
     @JsonIgnore
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<World> worlds;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Note> notes;
 
     public User() {
     }
@@ -141,6 +146,14 @@ public class User {
         this.worlds = worlds;
     }
 
+    public List<Note> getNotes() {
+        return notes;
+    }
+
+    public void setNotes(List<Note> notes) {
+        this.notes = notes;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -154,6 +167,7 @@ public class User {
                 ", aboutMe='" + aboutMe + '\'' +
                 ", profilePicture='" + profilePicture + '\'' +
                 ", worlds=" + worlds +
+                ", notes=" + notes +
                 '}';
     }
 }

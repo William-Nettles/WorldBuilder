@@ -9,7 +9,7 @@ export const CharacterDashboard: React.FC = () => {
         {
             name: "New Character",
             description: "Create a new character",
-            image: '/newWorld.jpg',
+            image: '/Demien_Price.png',
             path: "/characters/add"
         });
     const [cardsState, setCardsState] = useState<CardInterface[]>([])

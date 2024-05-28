@@ -31,3 +31,73 @@ export const postWorld = async (world: WorldInterface): Promise<WorldInterface> 
     const data = await response.json();
     return data;
 }
+
+
+
+
+
+
+//Notes Apis//////////////////////////////////////////////
+
+//Get all notes
+export const getNotesByWorld = async (worldId: number): Promise<[]> => {
+    const response = await fetch(`http://localhost:8080/notes/${worldId}`);
+    const data = await response.json();
+    return data;
+}
+
+//Post new note
+export const postNote = async (note: any): Promise<[]> => {
+    const response = await fetch('http://localhost:8080/notes', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(note),
+    });
+    const data = await response.json();
+    return data;
+}
+
+//Delete note
+export const deleteNote = async (id: number): Promise<[]> => {
+    const response = await fetch(`http://localhost:8080/notes/${id}`, {
+        method: 'DELETE',
+    });
+    const data = await response.json();
+    return data;
+}
+
+//Update note
+export const updateNote = async (note: any): Promise<[]> => {
+    const response = await fetch(`http://localhost:8080/notes/${note.id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(note),
+    });
+    const data = await response.json();
+    return data;
+}
+
+//Get note by id
+export const getNote = async (id: number): Promise<[]> => {
+    const response = await fetch(`http://localhost:8080/notes/${id}`);
+    const data = await response.json();
+    return data;
+}
+
+//Get all notes
+export const getNotes = async (): Promise<[]> => {
+    const response = await fetch('http://localhost:8080/notes');
+    const data = await response.json();
+    return data;
+}
+
+//Get notes by world id and pin
+export const getNotesByWorldAndPin = async (worldId: number, pin: string): Promise<[]> => {
+    const response = await fetch(`http://localhost:8080/notes/world/${worldId}/pin/${pin}`);
+    const data = await response.json();
+    return data;
+}

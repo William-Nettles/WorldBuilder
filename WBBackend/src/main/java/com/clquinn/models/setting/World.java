@@ -5,6 +5,7 @@ import com.clquinn.models.character.Faction;
 import com.clquinn.models.character.Race;
 import com.clquinn.models.character.Subrace;
 import com.clquinn.models.User;
+import com.clquinn.models.dictionary.Note;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import org.slf4j.Logger;
@@ -72,6 +73,10 @@ public class World {
     @JsonIgnore
     @OneToMany(mappedBy = "world", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Subrace> subraces;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "world", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Note> notes;
 
     public World() {
     }
@@ -205,6 +210,14 @@ public class World {
         this.subraces = subraces;
     }
 
+    public List<Note> getNotes() {
+        return notes;
+    }
+
+    public void setNotes(List<Note> notes) {
+        this.notes = notes;
+    }
+
     @Override
     public String toString() {
         return "World{" +
@@ -223,6 +236,7 @@ public class World {
                 ", factions=" + factions +
                 ", races=" + races +
                 ", subraces=" + subraces +
+                ", notes=" + notes +
                 '}';
     }
 }

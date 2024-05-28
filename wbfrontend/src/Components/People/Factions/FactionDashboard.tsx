@@ -9,7 +9,7 @@ export const FactionDashboard: React.FC = () => {
         {
             name: "New Faction",
             description: "Create a new faction",
-            image: '/newWorld.jpg',
+            image: '/kriarch.png',
             path: "/factions/add"
         });
     const [cardsState, setCardsState] = useState<CardInterface[]>([])

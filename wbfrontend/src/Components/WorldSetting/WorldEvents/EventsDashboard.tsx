@@ -8,7 +8,7 @@ export const EventsDashboard: React.FC = () => {
         {
             name: "New Event",
             description: "Create a new event",
-            image: '/newWorld.jpg',
+            image: '/dreams.png',
             path: "/maps/add"
         });
     const [cardsState, setCardsState] = useState<CardInterface[]>([])
