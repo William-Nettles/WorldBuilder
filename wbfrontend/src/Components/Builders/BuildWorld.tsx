@@ -27,7 +27,7 @@ export const BuildWorld: React.FC = () => {
         const img = imgRef.current?.value;
         const pub = pubRef.current?.value;
         const type = typeRef.current?.value;
-        setNewWorld({name: name, description: desc, type:type, image: img, isPublic: pub === 'on', user: currentUser as UserInterface});
+        setNewWorld({name: name, description: desc, genre:type, image: img, isPublic: pub === 'on', user: currentUser as UserInterface});
     };
 
     useEffect(() => {

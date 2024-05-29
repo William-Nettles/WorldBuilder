@@ -1,5 +1,6 @@
 import axios from "axios";
 import { WorldInterface } from "../Interfaces/WorldInterface";
+import { NoteInterface } from "../Interfaces/NoteInterface";
 
 
 
@@ -40,14 +41,14 @@ export const postWorld = async (world: WorldInterface): Promise<WorldInterface> 
 //Notes Apis//////////////////////////////////////////////
 
 //Get all notes
-export const getNotesByWorld = async (worldId: number): Promise<[]> => {
-    const response = await fetch(`http://localhost:8080/notes/${worldId}`);
+export const getNotesByWorld = async (worldId: number): Promise<NoteInterface[]> => {
+    const response = await fetch(`http://localhost:8080/notes/world/${worldId}`);
     const data = await response.json();
     return data;
 }
 
 //Post new note
-export const postNote = async (note: any): Promise<[]> => {
+export const postNote = async (note: any): Promise<NoteInterface[]> => {
     const response = await fetch('http://localhost:8080/notes', {
         method: 'POST',
         headers: {
@@ -82,22 +83,23 @@ export const updateNote = async (note: any): Promise<[]> => {
 }
 
 //Get note by id
-export const getNote = async (id: number): Promise<[]> => {
+export const getNote = async (id: number): Promise<NoteInterface> => {
     const response = await fetch(`http://localhost:8080/notes/${id}`);
     const data = await response.json();
     return data;
 }
 
 //Get all notes
-export const getNotes = async (): Promise<[]> => {
+export const getNotes = async (): Promise<NoteInterface[]> => {
     const response = await fetch('http://localhost:8080/notes');
     const data = await response.json();
     return data;
 }
 
 //Get notes by world id and pin
-export const getNotesByWorldAndPin = async (worldId: number, pin: string): Promise<[]> => {
+export const getNotesByWorldAndPin = async (worldId: number, pin: string): Promise<NoteInterface[]> => {
     const response = await fetch(`http://localhost:8080/notes/world/${worldId}/pin/${pin}`);
     const data = await response.json();
     return data;
 }
+
