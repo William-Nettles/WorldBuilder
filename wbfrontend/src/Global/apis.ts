@@ -1,6 +1,7 @@
 import axios from "axios";
 import { WorldInterface } from "../Interfaces/WorldInterface";
 import { NoteInterface } from "../Interfaces/NoteInterface";
+import { CharacterInterface } from "../Interfaces/CharacterInterface";
 
 
 
@@ -34,6 +35,21 @@ export const postWorld = async (world: WorldInterface): Promise<WorldInterface> 
 }
 
 
+
+
+/////Character Apis//////////////////////////////////////////////
+//post new character
+export const postCharacer = async (character: any): Promise<CharacterInterface> => {
+    const response = await fetch('http://localhost:8080/characters', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(character),
+    });
+    const data = await response.json();
+    return data;
+}
 
 
 
