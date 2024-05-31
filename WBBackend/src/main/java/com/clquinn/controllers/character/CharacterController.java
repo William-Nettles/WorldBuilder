@@ -11,7 +11,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/character")
+@RequestMapping("/characters")
+@CrossOrigin(origins = "http://localhost:3000")
 public class CharacterController {
 
     private final CharacterService characterService;
@@ -45,6 +46,16 @@ public class CharacterController {
     public ResponseEntity<?> getAllCharacters() {
         try {
             List<Character> characters = characterService.getAllCharacters();
+            return ResponseEntity.ok().body(characters);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body("Characters not found");
+        }
+    }
+
+    @GetMapping("/world/{worldId}")
+    public ResponseEntity<?> getCharactersByWorld(@PathVariable int worldId) {
+        try {
+            List<Character> characters = characterService.getCharactersByWorld(worldId);
             return ResponseEntity.ok().body(characters);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.NO_CONTENT).body("Characters not found");

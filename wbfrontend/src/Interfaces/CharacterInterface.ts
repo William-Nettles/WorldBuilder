@@ -18,4 +18,7 @@ export interface CharacterInterface {
     eyeColor?: string,
     race?: RaceInterface
     subrace?: SubraceInterface
+    raceName?: string
+    subraceName?: string
+    worldId?: number
 }

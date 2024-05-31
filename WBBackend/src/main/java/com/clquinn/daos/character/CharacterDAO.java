@@ -14,4 +14,5 @@ public interface CharacterDAO extends JpaRepository<Character, Long> {
     Optional<Object> findByFirstNameAndLastNameAndOtherNamesAndWorld_Id(String firstName, String lastName, String otherNames, Long id);
     Optional<Object> findByFirstNameAndLastNameAndOtherNames(String firstName, String lastName, String otherNames);
 
+    List<Character> findByWorldId(int worldId);
 }

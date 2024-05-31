@@ -36,9 +36,7 @@ public class CharacterService {
         if (character.getFirstName() == null || character.getFirstName().isEmpty()) {
             throw new RuntimeException("Character first name cannot be null or empty");
         }
-        if(characterDAO.findByFirstNameAndLastNameAndOtherNames(character.getFirstName(), character.getLastName(), character.getOtherNames()).isPresent()) {
-            throw new RuntimeException("Character with name " + character.getFirstName() + " " + character.getLastName() + " already exists");
-        }
+
 
         characterDAO.save(parseCharacter(character));
     }
@@ -70,9 +68,9 @@ public class CharacterService {
     private Character parseCharacter(CharacterIncomingDTO character) {
 
         Character newCharacter = new Character();
-        newCharacter.setWorld(worldDAO.findByName(character.getWorldName()).orElseThrow(RuntimeException::new));
-        newCharacter.setRace( raceDAO.findByName(character.getRaceName()).orElseThrow(RuntimeException::new));
-        newCharacter.setSubrace(subraceDAO.findByName(character.getSubraceName()).orElseThrow(RuntimeException::new));
+        newCharacter.setWorld(worldDAO.findById(character.getWorldId()).orElseThrow(RuntimeException::new));
+        newCharacter.setRace( raceDAO.findByName(character.getRaceName()).orElse(null));
+        newCharacter.setSubrace(subraceDAO.findByName(character.getSubraceName()).orElse(null));
         newCharacter.setFirstName(character.getFirstName());
         newCharacter.setLastName(character.getLastName());
         newCharacter.setAge(character.getAge());
@@ -90,5 +88,8 @@ public class CharacterService {
         return newCharacter;
     }
 
+    public List<Character> getCharactersByWorld(int worldId) {
+        return characterDAO.findByWorldId(worldId);
+    }
 }
 

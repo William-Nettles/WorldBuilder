@@ -51,6 +51,12 @@ export const postCharacer = async (character: any): Promise<CharacterInterface> 
     return data;
 }
 
+//Get all characters by world id
+export const getCharactersByWorld = async (worldId: number): Promise<CharacterInterface[]> => {
+    const response = await fetch(`http://localhost:8080/characters/world/${worldId}`);
+    const data = await response.json();
+    return data;
+}
 
 
 

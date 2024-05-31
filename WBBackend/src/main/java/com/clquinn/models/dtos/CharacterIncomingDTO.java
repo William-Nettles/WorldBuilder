@@ -1,16 +1,5 @@
 package com.clquinn.models.dtos;
 
-import com.clquinn.models.character.Race;
-import com.clquinn.models.character.Subrace;
-import com.clquinn.models.dictionary.faction.FactionRelation;
-import com.clquinn.models.dictionary.relationship.Relationship;
-import com.clquinn.models.setting.World;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.*;
-import org.springframework.stereotype.Component;
-
-import java.util.List;
-
 public class CharacterIncomingDTO {
 
 
@@ -30,12 +19,13 @@ public class CharacterIncomingDTO {
     private String worldName;
     private String raceName;
     private String subraceName;
+    private int worldId;
 
 
     public CharacterIncomingDTO() {
     }
 
-    public CharacterIncomingDTO(Long id, String firstName, String lastName, String otherNames, int age, String dateOfBirth, String dateOfDeath, String description, String image, String sex, int height, int weight, String hairColor, String eyeColor, String worldName, String raceName, String subraceName) {
+    public CharacterIncomingDTO(Long id, String firstName, String lastName, String otherNames, int age, String dateOfBirth, String dateOfDeath, String description, String image, String sex, int height, int weight, String hairColor, String eyeColor, String worldName, String raceName, String subraceName, int worldId) {
 
         this.firstName = firstName;
         this.lastName = lastName;
@@ -53,6 +43,7 @@ public class CharacterIncomingDTO {
         this.worldName = worldName;
         this.raceName = raceName;
         this.subraceName = subraceName;
+        this.worldId = worldId;
     }
 
     public String getFirstName() {
@@ -181,6 +172,14 @@ public class CharacterIncomingDTO {
 
     public void setSubraceName(String subraceName) {
         this.subraceName = subraceName;
+    }
+
+    public long getWorldId() {
+        return worldId;
+    }
+
+    public void setWorldId(int worldId) {
+        this.worldId = worldId;
     }
 
     @Override

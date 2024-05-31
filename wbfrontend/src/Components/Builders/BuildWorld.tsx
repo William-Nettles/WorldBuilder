@@ -90,6 +90,9 @@ export const BuildWorld: React.FC = () => {
                 <Button variant="warning" type="submit">
                     Submit
                 </Button>
+                <Button variant="warning" type="reset" onClick={()=>nav('/worlds')} style={{margin:"5px"}}>
+                    Back
+                </Button>
             </Form>
         
         

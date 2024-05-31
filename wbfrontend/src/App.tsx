@@ -35,7 +35,7 @@ function App() {
             <Route path='/register' element={<Register/>} />
             <Route path= '/worlds' element= {<WorldsDashboard />} />
             <Route path='/worlds/add' element = {<BuildWorld/>} />
-            <Route path='/characters/add' element = {<BuildCharacter/>} />
+            <Route path='/world/:worldId/characters/add' element = {<BuildCharacter/>} />
             <Route path='/account'element= {<UserInfo/>} />
             <Route path='/world' element= {<WorldsLayout/>}>
               <Route path='/world/:worldId' element= {<WorldDetails/>} />
